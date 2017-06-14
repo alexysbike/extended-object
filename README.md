@@ -1,12 +1,12 @@
 # extended-object
 Extends an object adding array functions like map, filter, forEach, etc...
 
-##Installation
+## Installation
 ```
 $ npm install extended-object
 ```
 
-##How to use it
+## How to use it
 
 ```javascript
 const extendedObject = require('extended-object');
@@ -38,7 +38,7 @@ console.log(message2.join(' '));
 //Alexys Gonzalez is 102 years old!
 ```
 
-##Functions
+## Functions
 
 ###.map
 Create a new object with the results of calling a provided function on every property in the calling object.
@@ -48,7 +48,7 @@ const newObject = obj.map((value, key, obj) => {
     // Return element for newObject
 });
 ```
-#####Example
+##### Example
 ```javascript
 const extendedObject = require('extended-object');
 const myObj = extendedObject({alex: 1, belinda: 2, charlie: 3});
@@ -63,15 +63,15 @@ console.log(mapped);
 */
 ```
 
-###.filter
+### .filter
 Create a new object with all properties that pass the test implemented by the provided function.
-#####Syntax
+##### Syntax
 ```javascript
 const newObject = obj.filter((value, key, obj) => {
     // Return true for passed property to newObject
 });
 ```
-#####Example
+##### Example
 ```javascript
 const extendedObject = require('extended-object');
 const myObj = extendedObject({alex: 1, belinda: 2, charlie: 3});
@@ -85,15 +85,15 @@ console.log(filtered);
 */
 ```
 
-###.forEach
+### .forEach
 Execute a provided function once for each object property.
-#####Syntax
+##### Syntax
 ```javascript
 obj.forEach((value, key, obj) => {
     // operations
 });
 ```
-#####Example
+##### Example
 ```javascript
 const extendedObject = require('extended-object');
 const myObj = extendedObject({alex: 1, belinda: 2, charlie: 3});
@@ -103,15 +103,15 @@ myObj.forEach((value, key) => console.log(`${key} is ${value} years old!`));
 //charlie is 3 years old! 
 ```
 
-###.every
+### .every
 Test whether all properties in the object pass the test implemented by the provided function.
-#####Syntax
+##### Syntax
 ```javascript
 const pass = obj.every((value, key, obj) => {
     // Evaluate and return true or false for each property
 });
 ```
-#####Example
+##### Example
 ```javascript
 const extendedObject = require('extended-object');
 const myObj = extendedObject({alex: 17, belinda: 20, charlie: 30});
@@ -120,13 +120,13 @@ console.log(olders);
 //false
 ```
 
-###.toArray
+### .toArray
 Return an array with all the properties of he object.
-#####Syntax
+##### Syntax
 ```javascript
 const array = obj.toArray();
 ```
-#####Example
+##### Example
 ```javascript
 const extendedObject = require('extended-object');
 const myObj = extendedObject({alex: 17, belinda: 20, charlie: 30});
