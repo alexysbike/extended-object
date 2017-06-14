@@ -1,0 +1,30 @@
+{
+  "name": "extended-object",
+  "version": "1.0.0",
+  "description": "Extends an object adding array functions like map, filter, forEach, etc...",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexysbike/extended-object.git"
+  },
+  "keywords": [
+    "object",
+    "node",
+    "javascript",
+    "array",
+    "extend",
+    "extended-object"
+  ],
+  "author": "Alexys Gonzalez (DK)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexysbike/extended-object/issues"
+  },
+  "homepage": "https://github.com/alexysbike/extended-object#readme",
+  "devDependencies": {
+    "expect": "^1.20.2"
+  }
+}
