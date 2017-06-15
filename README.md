@@ -134,3 +134,23 @@ const array = myObj.toArray();
 console.log(array);
 //[17, 20, 30]
 ```
+
+### .reduce
+applies a function against an accumulator and each property in the object to reduce it to a single value.
+##### Syntax
+```javascript
+const pass = obj.reduce((accumulator, value, key, obj) => {
+    // return the accumulator for the next iteration
+}[, initialValue]);
+```
+##### Example
+```javascript
+const extendedObject = require('extended-object');
+const myObj = extendedObject({alex: 17, belinda: 20, charlie: 30});
+const total = myObj.reduce((accumulator, value) => {
+    accumulator += value;
+    return accumulator;
+}, 0);
+console.log(total);
+// 67
+```

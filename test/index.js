@@ -88,3 +88,24 @@ it('should catch overwrite of protected properties', () => {
     obj.map = 'overwrite';
     expect(typeof obj.map).toBe('function');
 });
+it('should extend an object and use reduce', () => {
+    const data = {
+        a: [ 'abc', 'y' ],
+        b: [ 'z' ],
+        c: 'NOP',
+        d: 'que raro',
+        refer: 'refer'
+    };
+    const obj = extendedObject(data);
+
+    const anotherObj = obj.reduce((acc, value) => {
+        if(value instanceof Array){
+            acc.arrays.push(value);
+        }else{
+            acc.others.push(value);
+        }
+        return acc;
+    }, {arrays: [], others: []});
+    expect(anotherObj.arrays.length).toBe(2);
+    expect(anotherObj.others.length).toBe(3);
+});

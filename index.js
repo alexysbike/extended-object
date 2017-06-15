@@ -1,10 +1,15 @@
+/**
+ * extended-object v.1.1.0
+ * By Alexys Gonzalez (DK)
+ */
 const {
     entries,
     map,
     filter,
     forEach,
     every,
-    toArray
+    toArray,
+    reduce
 } = require('./lib/functions');
 const extendedObject = (obj = {}, clone = false) => {
     const inner = Symbol('inner');
@@ -17,6 +22,7 @@ const extendedObject = (obj = {}, clone = false) => {
     extended.forEach = forEach;
     extended.every = every;
     extended.toArray = toArray;
+    extended.reduce = reduce;
     extended.symbol = () => inner;
     const protectedProperties = [
         'map',
@@ -25,6 +31,7 @@ const extendedObject = (obj = {}, clone = false) => {
         'every',
         'toArray',
         'symbol',
+        'reduce',
     ];
     const proxied = new Proxy(extended, {
         get: function(target, prop, receiver) {
