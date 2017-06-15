@@ -1,3 +1,7 @@
+/**
+ * extended-object v.1.1.0
+ * By Alexys Gonzalez (DK)
+ */
 const {
     entries,
     map,
