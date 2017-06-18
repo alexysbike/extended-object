@@ -1,5 +1,5 @@
 /**
- * extended-object v.1.1.0
+ * extended-object v.1.2.0
  * By Alexys Gonzalez (DK)
  */
 const {
