@@ -2,40 +2,36 @@
  * extended-object v.1.1.0
  * By Alexys Gonzalez (DK)
  */
-const {
-    entries,
-    map,
-    filter,
-    forEach,
-    every,
-    toArray,
-    reduce,
-    find
-} = require('./lib/functions');
-const extendedObject = (obj = {}, clone = false) => {
+const functions = require('./lib/functions');
+const {entries} = require('./lib/utils');
+
+const isObject = (obj = null) => {
+    if (obj !== null && obj.constructor === {}.constructor) {
+        return true;
+    }
+    return false;
+};
+
+const spreader = obj => {
+    for (let [key, value] of entries(obj)){
+        if(isObject(value)){
+            obj[key] = extendedObject(value);
+        }
+    }
+};
+
+const extendedObject = (obj = {}, spread = true, clone = false) => {
     const inner = Symbol('inner');
     const extended = function(){
         return this[inner];
     };
     extended[inner] = (clone) ? JSON.parse(JSON.stringify(obj)) : obj;
-    extended.map = map;
-    extended.filter = filter;
-    extended.forEach = forEach;
-    extended.every = every;
-    extended.toArray = toArray;
-    extended.reduce = reduce;
-    extended.find = find;
+    Object.assign(extended, functions);
+    if(spread){
+        spreader(extended[inner]);
+    }
     extended.symbol = () => inner;
-    const protectedProperties = [
-        'map',
-        'filter',
-        'forEach',
-        'every',
-        'toArray',
-        'symbol',
-        'reduce',
-        'find',
-    ];
+    const protectedProperties = [...Object.keys(functions), 'symbol'];
     const proxied = new Proxy(extended, {
         get: function(target, prop, receiver) {
             if (protectedProperties.indexOf(prop) >= 0 || prop === inner){

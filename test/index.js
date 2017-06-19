@@ -121,3 +121,5 @@ it('should extend an object and use reduce', () => {
     expect(anotherObj.arrays.length).toBe(2);
     expect(anotherObj.others.length).toBe(3);
 });
+
+require('./properties');
