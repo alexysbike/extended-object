@@ -9,7 +9,8 @@ const {
     forEach,
     every,
     toArray,
-    reduce
+    reduce,
+    find
 } = require('./lib/functions');
 const extendedObject = (obj = {}, clone = false) => {
     const inner = Symbol('inner');
@@ -23,6 +24,7 @@ const extendedObject = (obj = {}, clone = false) => {
     extended.every = every;
     extended.toArray = toArray;
     extended.reduce = reduce;
+    extended.find = find;
     extended.symbol = () => inner;
     const protectedProperties = [
         'map',
@@ -32,6 +34,7 @@ const extendedObject = (obj = {}, clone = false) => {
         'toArray',
         'symbol',
         'reduce',
+        'find',
     ];
     const proxied = new Proxy(extended, {
         get: function(target, prop, receiver) {
