@@ -76,6 +76,18 @@ it('should extend an object and convert it to array using toArray function', () 
     const array = obj.toArray();
     expect(array instanceof Array).toBe(true);
 });
+it('should extend an object and get first not array value using find function', () => {
+    const data = {
+        a: [ 'abc', 'y' ],
+        b: [ 'z' ],
+        c: 'NOP',
+        d: 'que raro',
+        refer: 'refer'
+    };
+    const obj = extendedObject(data);
+    const notArray = obj.find(value => (!(value instanceof Array)));
+    expect(notArray).toBe('NOP');
+});
 it('should catch overwrite of protected properties', () => {
     const data = {
         a: [ 'abc', 'y' ],
@@ -109,3 +121,5 @@ it('should extend an object and use reduce', () => {
     expect(anotherObj.arrays.length).toBe(2);
     expect(anotherObj.others.length).toBe(3);
 });
+
+require('./properties');

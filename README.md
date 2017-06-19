@@ -8,14 +8,14 @@ $ npm install extended-object
 
 ## How to use it
 ##### Syntax
-```javascript
-const extendedObject = require('extended-object');
-extendedObject(obj, spread = true, clone = false);
-```
-By default the extendedObject its applied to each object inside.
-If the spread is set to false, extendedObject will be applied only to the outer object
-By default its used reference equality in the returned object.
-If clone is set to true, its return a deep copy of the object.
+ ```javascript
+ const extendedObject = require('extended-object');
+ extendedObject(obj, spread = true, clone = false);
+ ```
+ By default the extendedObject its applied to each object inside.
+ If the spread is set to false, extendedObject will be applied only to the outer object
+ By default its used reference equality in the returned object.
+ If clone is set to true, its return a deep copy of the object.
 
 ```javascript
 const extendedObject = require('extended-object');
@@ -162,4 +162,23 @@ const total = myObj.reduce((accumulator, value) => {
 }, 0);
 console.log(total);
 // 67
+```
+
+### .find
+Return the first value which pass the test implemented by the provided function, if there is not, return undefined.
+##### Syntax
+```javascript
+const newObject = obj.find((value, key, obj) => {
+    // Return true if pass test
+});
+```
+##### Example
+```javascript
+const extendedObject = require('extended-object');
+const myObj = extendedObject({alex: 1, belinda: 2, charlie: 3});
+const found = myObj.find(value => value >= 2);
+console.log(found);
+/*
+2
+*/
 ```
