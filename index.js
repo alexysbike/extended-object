@@ -1,5 +1,5 @@
 /**
- * extended-object v.1.2.1
+ * extended-object v.1.2.2
  * By Alexys Gonzalez (DK)
  */
 const functions = require('./lib/functions');
