@@ -10,10 +10,9 @@ $ npm install extended-object
 ##### Syntax
  ```javascript
  const extendedObject = require('extended-object');
- extendedObject(obj, spread = true, clone = false);
+ extendedObject(obj, spread = false, clone = false);
  ```
- By default the extendedObject its applied to each object inside.
- If the spread is set to false, extendedObject will be applied only to the outer object
+ If the spread is set to true, the extendedObject its applied to each object inside
  By default its used reference equality in the returned object.
  If clone is set to true, its return a deep copy of the object.
 

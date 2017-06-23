@@ -22,7 +22,7 @@ describe('Properties Functions', () => {
             }
         };
 
-        const extended = extend(obj);
+        const extended = extend(obj, true);
         const deadBase = extended.bases.filter(value => 
             value.length === value.filter(soldier => soldier.hp === 0).length
         );
@@ -49,7 +49,7 @@ describe('Properties Functions', () => {
             }
         };
 
-        const extended = extend(obj);
+        const extended = extend(obj, true);
         extended.normalBases = extended.bases.map(value => {
             const soldiers = {};
             value.forEach(soldier => {
@@ -84,7 +84,7 @@ describe('Properties Functions', () => {
             }
         };
 
-        const extended = extend(obj);
+        const extended = extend(obj, true);
         extended.soldiers = {};
         extended.bases.forEach((soldiers, key) => {
             soldiers.forEach(soldier => extended.soldiers[soldier.name] = key);
