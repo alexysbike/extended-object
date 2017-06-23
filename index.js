@@ -20,7 +20,7 @@ const spreader = obj => {
     }
 };
 
-const extendedObject = (obj = {}, spread = true, clone = false) => {
+const extendedObject = (obj = {}, spread = false, clone = false) => {
     const inner = Symbol('inner');
     const extended = function(){
         return this[inner];
