@@ -1,6 +1,6 @@
 {
   "name": "extended-object",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Extends an object adding array functions like map, filter, forEach, etc...",
   "main": "index.js",
   "scripts": {
